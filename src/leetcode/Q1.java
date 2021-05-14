@@ -27,7 +27,7 @@ public class Q1 {
     }
 
     public static void validate(){
-        int[] array = Utils.generateArray(10);
+        int[] array = Utils.generateIntArray(10);
         int idx1 = new Random().nextInt(array.length);
         int idx2;
         do {
