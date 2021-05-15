@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
+/**
+ * https://leetcode-cn.com/problems/valid-parentheses/
+ */
 public class Q20 implements Test {
 
     private Map<Character, Character> map;
