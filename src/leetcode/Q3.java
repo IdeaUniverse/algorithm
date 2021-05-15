@@ -54,7 +54,7 @@ public class Q3 implements Test {
 
     @Override
     public boolean test() {
-        String str = Utils.getRandomString(10);
+        String str = Utils.generateRandomString(10);
 //        str = "Yo0995Mu5Z";
         String result = maxSubString(str);
         System.out.println("原字符串：" + str + " 最长子串：" + result + " 子串长度：" + result.length());

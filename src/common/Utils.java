@@ -16,7 +16,7 @@ public class Utils {
         return arr;
     }
 
-    public static String getRandomString(int length) {
+    public static String generateRandomString(int length) {
         String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         Random random = new Random();
         StringBuilder sb = new StringBuilder();
@@ -33,6 +33,25 @@ public class Utils {
             success += test.test() ? 1 : 0;
         }
         System.out.println("\n总计：" + total + ", 正确：" + success);
+    }
+
+    public static boolean isSameIntArray(int[] arr, int[] arr1){
+        if(arr == null || arr1 == null || arr.length != arr1.length)
+            return false;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] != arr1[i])
+                return false;
+        }
+        return true;
+    }
+
+    public static void print(Object ...args){
+        StringBuilder result = new StringBuilder();
+        for (Object arg : args) {
+            result.append(arg);
+            result.append(" ");
+        }
+        System.out.println(result);
     }
 
     public static void main(String[] args) {
