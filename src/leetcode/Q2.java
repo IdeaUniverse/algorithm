@@ -1,6 +1,7 @@
 package leetcode;
 
-import utils.Utils;
+import common.Test;
+import common.Utils;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -8,7 +9,7 @@ import java.util.Random;
 /**
  * https://leetcode-cn.com/problems/add-two-numbers/
  */
-public class Q2 {
+public class Q2 implements Test {
 
     private static List<Integer> add (List<Integer> num1, List<Integer> num2) {
         if(num1.size() < num2.size()){
@@ -35,7 +36,7 @@ public class Q2 {
         return result;
     }
 
-    public static int validate(){
+    public static boolean validate(){
         int r1 = 0,r2 = 0;
         do {
             r1 = new Random().nextInt(10);
@@ -63,7 +64,7 @@ public class Q2 {
         int realResult = number1 + number2;
         boolean check = realResult == arrayToInt(result);
         System.out.println("real: " + number1 + " + " + number2 + " = " + realResult + ", " + check + " \n");
-        return check ? 1 : 0;
+        return check;
     }
 
     private static int arrayToInt(int[] array){
@@ -75,10 +76,11 @@ public class Q2 {
     }
 
     public static void main(String[] args) {
-        int total = 100, success = 0;
-        for (int i = 0; i < total; i++) {
-            success += validate();
-        }
-        Utils.statistics(total, success);
+        Utils.batchTest(100, new Q2());
+    }
+
+    @Override
+    public boolean test() {
+        return validate();
     }
 }

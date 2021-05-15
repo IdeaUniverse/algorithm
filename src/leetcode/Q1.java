@@ -1,6 +1,6 @@
 package leetcode;
 
-import utils.Utils;
+import common.Utils;
 
 import java.util.Arrays;
 import java.util.HashMap;
