@@ -16,6 +16,14 @@ public class Utils {
         return arr;
     }
 
+    public static int[] generateIntRangeArray(int start, int end){
+        int[] arr = new int[end - start];
+        for (int i = start; i < end; i++) {
+            arr[i] = i;
+        }
+        return arr;
+    }
+
     public static String generateRandomString(int length) {
         String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         Random random = new Random();
@@ -25,6 +33,10 @@ public class Utils {
             sb.append(str.charAt(number));
         }
         return sb.toString();
+    }
+
+    public static int generateRandomInteger(int start, int end){
+        return start + new Random().nextInt(end - start);
     }
 
     public static void batchTest(int total, Test test){
