@@ -76,7 +76,7 @@ public class Q2 implements Test {
     }
 
     public static void main(String[] args) {
-        Utils.batchTest(100, new Q2());
+        Utils.batchTest(new Q2(),100);
     }
 
     @Override

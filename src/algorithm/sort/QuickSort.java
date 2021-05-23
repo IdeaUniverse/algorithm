@@ -59,6 +59,6 @@ public class QuickSort implements Test {
     }
 
     public static void main(String[] args) {
-        Utils.batchTest(100, new QuickSort());
+        Utils.batchTest(new QuickSort(), 100);
     }
 }

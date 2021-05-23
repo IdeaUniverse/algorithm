@@ -62,6 +62,6 @@ public class Q3 implements Test {
     }
 
     public static void main(String[] args) {
-        Utils.batchTest(100, new Q3());
+        Utils.batchTest(new Q3(),100);
     }
 }

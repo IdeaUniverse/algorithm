@@ -39,12 +39,13 @@ public class Utils {
         return start + new Random().nextInt(end - start);
     }
 
-    public static void batchTest(int total, Test test){
+    public static void batchTest(Test test, int total){
         int success = 0;
         for (int i = 0; i < total; i++) {
             success += test.test() ? 1 : 0;
+            System.out.println();
         }
-        System.out.println("\n总计：" + total + ", 正确：" + success);
+        System.out.println("总计：" + total + ", 正确：" + success);
     }
 
     public static boolean isSameIntArray(int[] arr, int[] arr1){

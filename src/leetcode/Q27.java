@@ -38,7 +38,7 @@ public class Q27 implements Test {
 
 
     public static void main(String[] args) {
-        Utils.batchTest(100, new Q27());
+        Utils.batchTest(new Q27(),100);
     }
 
     @Override
