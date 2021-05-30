@@ -1,6 +1,6 @@
 package common;
 
-import java.util.Random;
+import java.util.*;
 
 public class Utils {
 
@@ -16,6 +16,14 @@ public class Utils {
         return arr;
     }
 
+    public static int[] generateNoRepeatIntArray(int size, int bound){
+        Set<Integer> set = new HashSet<>(size);
+        while (set.size() < size){
+            set.add(new Random().nextInt(bound));
+        }
+        return set.stream().mapToInt(i -> i).toArray();
+    }
+
     public static int[] generateIntRangeArray(int start, int end){
         int[] arr = new int[end - start];
         for (int i = start; i < end; i++) {
@@ -27,7 +35,7 @@ public class Utils {
     public static String generateRandomString(int length) {
         String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         Random random = new Random();
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
             int number = random.nextInt(str.length());
             sb.append(str.charAt(number));
@@ -42,10 +50,10 @@ public class Utils {
     public static void batchTest(Test test, int total){
         int success = 0;
         for (int i = 0; i < total; i++) {
+            System.out.println("\n(" + (i + 1) + ")");
             success += test.test() ? 1 : 0;
-            System.out.println();
         }
-        System.out.println("总计：" + total + ", 正确：" + success);
+        System.out.println("\n-------------------\n总计: " + total + ", 正确: " + success);
     }
 
     public static boolean isSameIntArray(int[] arr, int[] arr1){
