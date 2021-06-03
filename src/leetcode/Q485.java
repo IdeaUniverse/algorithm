@@ -4,7 +4,6 @@ import common.Test;
 import common.Utils;
 
 import java.util.Arrays;
-import java.util.Map;
 
 /**
  * https://leetcode-cn.com/problems/max-consecutive-ones/
