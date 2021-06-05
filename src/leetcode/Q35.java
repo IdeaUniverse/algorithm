@@ -65,7 +65,7 @@ public class Q35 implements Test {
         int result1 = searchInsertRecursively(arr, target);
         int result2 = searchInsertLoop(arr, target);
         boolean flag = result1 == result2 && result2 == index;
-        Utils.print("递归算法结果:", result1, "循环算法结果:", result2, "验证:", flag);
+        Utils.print("递归算法结果:", result1, "循环算法结果:", result2);
         return flag;
     }
 

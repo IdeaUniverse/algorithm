@@ -51,7 +51,9 @@ public class Utils {
         int success = 0;
         for (int i = 0; i < total; i++) {
             System.out.println("\n(" + (i + 1) + ")");
-            success += test.test() ? 1 : 0;
+            boolean result = test.test();
+            print("【验证】", result);
+            success += result ? 1 : 0;
         }
         System.out.println("\n-------------------\n总计: " + total + ", 正确: " + success);
     }

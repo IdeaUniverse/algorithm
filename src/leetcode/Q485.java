@@ -54,7 +54,7 @@ public class Q485 implements Test {
         int result1 = findMaxConsecutiveOnesLoop(arr);
         int result2 = findMaxConsecutiveOnesDynamicProgramming(arr);
         boolean result = result1 == result2;
-        Utils.print("循环算法结果: ", result1, "递归算法结果: ", result2, "验证: ", result);
+        Utils.print("循环算法结果: ", result1, "递归算法结果: ", result2);
         return result;
     }
 

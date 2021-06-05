@@ -36,9 +36,7 @@ public class Q146 implements Test {
         Utils.print("最新Cache", cache);
         Utils.print("最新LinkedHashMap", linkedHashMap);
 
-        boolean result = cache.toString().equals(linkedHashMap.toString());
-        Utils.print("验证", result);
-        return result;
+        return cache.toString().equals(linkedHashMap.toString());
     }
 
     public static void main(String[] args) {
@@ -148,7 +146,7 @@ class LinkedList<K, V> {
 
 class LruLinkedHashMap<K,V> extends LinkedHashMap<K,V>{
 
-    private int capacity;
+    private final int capacity;
 
     public LruLinkedHashMap(int capacity){
         super(capacity, 0.75f, false);

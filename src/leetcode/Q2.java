@@ -63,7 +63,7 @@ public class Q2 implements Test {
         System.out.println(num1 + " + " + num2 + " = " + resultList);
         int realResult = number1 + number2;
         boolean check = realResult == arrayToInt(result);
-        System.out.println("real: " + number1 + " + " + number2 + " = " + realResult + ", " + check + " \n");
+        System.out.println("real: " + number1 + " + " + number2 + " = " + realResult);
         return check;
     }
 

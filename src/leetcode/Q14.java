@@ -45,12 +45,11 @@ public class Q14 implements Test {
         System.out.println("字符串数组");
         for (int i = 0; i < num; i++) {
             arr[i] = cp + Utils.generateRandomString(new Random().nextInt(5));
-            System.out.println(arr[i]);
         }
         Utils.print("正确lcp", cp, "正确lcp长度", cp.length());
         String lcp = longestCommonPrefix(arr);
         boolean result = cp.equals(lcp);
-        Utils.print("计算所得lcp", lcp, "计算所得lcp长度", lcp.length(), "验证", result);
+        Utils.print("计算所得lcp", lcp, "计算所得lcp长度", lcp.length());
         return result;
     }
 
