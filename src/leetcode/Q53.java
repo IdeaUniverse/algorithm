@@ -57,7 +57,7 @@ public class Q53 implements Test {
 
     @Override
     public boolean test() {
-        int[] nums = generateArray(3);
+        int[] nums = generateArray(10);
         //nums = new int[]{15, -24, 16};
         Utils.print("原数组", Arrays.toString(nums));
         int result2 = maxSubArray2(nums);
