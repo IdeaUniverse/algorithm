@@ -7,32 +7,38 @@ import java.util.*;
  */
 public class Q290 {
 
-    private static boolean check(String pattern, String str){
+    private static boolean wordPattern(String pattern, String str){
         String[] words = str.split(" ");
         if(pattern.length() != words.length) return false;
-
-        Map<Character, Integer> map = new HashMap<>(pattern.length());
-
+        Map<String, String> map1 = new HashMap<>(pattern.length());
+        Map<String, String> map2 = new HashMap<>(pattern.length());
         for (int i = 0; i < pattern.length(); i++) {
-            char c = pattern.charAt(i);
-            if(!map.containsKey(c))
-                map.put(c, map.size());
+            String word = words[i];
+            String pat = String.valueOf(pattern.charAt(i));
+            map1.put(pat, word);
+            map2.put(word, pat);
         }
-
-        Set<String> set = new HashSet<>(words.length);
         for (int i = 0; i < words.length; i++) {
             String word = words[i];
-            if(!word.equals(words[map.get(pattern.charAt(i))])) return false;
-            set.add(word);
+            String pat = map2.get(word);
+            if(!word.equals(map1.get(pat)))
+                return false;
         }
-        return set.size() == map.keySet().size();
+        for (int i = 0; i < pattern.length(); i++) {
+            String pat = String.valueOf(pattern.charAt(i));
+            String word = map1.get(pat);
+            if(!pat.equals(map2.get(word)))
+                return false;
+        }
+        return true;
     }
 
     public static void main(String[] args) {
-        System.out.println(check("abba", "dog cat cat dog"));
-        System.out.println(check("abba", "dog cat cat fish"));
-        System.out.println(check("aaaa", "dog cat cat dog"));
-        System.out.println(check("abba", "dog dog dog dog"));
-        System.out.println(check("aaaa", "b b b b"));
+        System.out.println(wordPattern("abba", "dog cat cat dog"));
+        System.out.println(wordPattern("abba", "dog cat cat fish"));
+        System.out.println(wordPattern("aaaa", "dog cat cat dog"));
+        System.out.println(wordPattern("abba", "dog dog dog dog"));
+        System.out.println(wordPattern("aaaa", "b b b b"));
+        System.out.println(wordPattern("aaaa", "dog cat cat dog"));
     }
 }

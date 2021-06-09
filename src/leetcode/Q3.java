@@ -27,8 +27,8 @@ public class Q3 implements Test {
             }
             result.delete(0, result.length());
             charSet.forEach(result::append);
-            String sub = String.join(",", result);
-            if(sub.length() > maxSub.length()) maxSub = sub;
+            if(result.length() > maxSub.length())
+                maxSub = result.toString();
         }
         return maxSub;
     }
@@ -55,7 +55,7 @@ public class Q3 implements Test {
     @Override
     public boolean test() {
         String str = Utils.generateRandomString(10);
-//        str = "Yo0995Mu5Z";
+//        str = "sabcabcbb";
         String result = maxSubString(str);
         System.out.println("原字符串：" + str + " 最长子串：" + result + " 子串长度：" + result.length());
         return validate(str, result);
