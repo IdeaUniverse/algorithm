@@ -2,9 +2,6 @@ package leetcode;
 
 import common.Test;
 import common.Utils;
-import jdk.jshell.execution.Util;
-
-import java.lang.reflect.UndeclaredThrowableException;
 import java.util.Random;
 
 public class Q231 implements Test {
@@ -13,8 +10,6 @@ public class Q231 implements Test {
      * 位运算
      * 如果一个数 n 是 2 的整数次幂，则 n & (n - 1) == 0
      * https://www.bilibili.com/video/BV1xa411A76q?p=25
-     * @param n
-     * @return
      */
     public boolean isPowerOfTwo1(int n) {
         return (n & (n - 1)) == 0;
@@ -22,8 +17,6 @@ public class Q231 implements Test {
 
     /**
      * 二分查找
-     * @param n
-     * @return
      */
     public boolean isPowerOfTwo2(int n) {
         int l = 0, r = n;
