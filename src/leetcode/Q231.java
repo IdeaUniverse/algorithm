@@ -4,6 +4,9 @@ import common.Test;
 import common.Utils;
 import java.util.Random;
 
+/**
+ * https://leetcode-cn.com/problems/power-of-two/
+ */
 public class Q231 implements Test {
 
     /**
