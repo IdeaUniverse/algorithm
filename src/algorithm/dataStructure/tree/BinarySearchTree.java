@@ -1,11 +1,5 @@
 package algorithm.dataStructure.tree;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
-
 /**
  * 二叉搜索树
  */

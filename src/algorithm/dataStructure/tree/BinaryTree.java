@@ -1,9 +1,10 @@
 package algorithm.dataStructure.tree;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.function.Function;
 
+/**
+ * 二叉树
+ */
 public class BinaryTree <T extends Comparable<T>> {
 
     public TreeNode<T> root;
