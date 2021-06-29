@@ -17,7 +17,7 @@ public class TreeNode<T extends Comparable<T>> {
 
     @Override
     public String toString() {
-        return "TreeNode{" +
+        return "{" +
                 "data=" + data +
 //                ", leftChild=" + leftChild +
 //                ", rightChild=" + rightChild +

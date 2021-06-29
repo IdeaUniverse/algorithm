@@ -10,6 +10,10 @@ import java.util.Arrays;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+/**
+ * 二叉搜索树的范围和
+ * https://leetcode-cn.com/problems/range-sum-of-bst/
+ */
 public class Q938 implements Test {
 
     public int rangeSumBST(BinarySearchTree<Integer> bst, int low, int high) {
