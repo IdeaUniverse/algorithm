@@ -27,9 +27,11 @@ public class Q1143 implements Test {
                 records[i][j] = new Record();
             }
         }
+        // records 的一维索引或二维索引为0的表示没有字符
         for (int i = 1; i < x.length() + 1; i++) {
+            char xc = x.charAt(i - 1);
             for (int j = 1; j < y.length() + 1; j++) {
-                char xc = x.charAt(i - 1); char yc = y.charAt(j - 1);
+                char yc = y.charAt(j - 1);
                 if (xc == yc) {
                     records[i][j].value = records[i - 1][j - 1].value + 1;
                     records[i][j].direction = UP_LEFT;
