@@ -17,6 +17,7 @@ public class BinaryTree <T extends Comparable<T>> {
 
     /**
      * 按完全二叉树方式填充
+     * 空结点可传 null, 然后树中以 TreeNode{data=null} 代替空结点
      */
     public TreeNode<T> insert(T data){
         TreeNode<T> node = new TreeNode<>(data);
@@ -42,14 +43,33 @@ public class BinaryTree <T extends Comparable<T>> {
     }
 
     /**
-     * 层序遍历
+     * 深度优先搜索
+     */
+    public List<TreeNode<T>> dfs() {
+        if(root == null) return Collections.emptyList();
+        List<TreeNode<T>> list = new ArrayList<>();
+        Stack<TreeNode<T>> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            TreeNode<T> current = stack.pop();
+            list.add(current);
+            if(current.rightChild != null)
+                stack.push(current.rightChild);
+            if(current.leftChild != null)
+                stack.push(current.leftChild);
+        }
+        return list;
+    }
+
+    /**
+     * 广度优先搜索（层序遍历）
      */
     public List<TreeNode<T>> bfs(){
         if(root == null) return Collections.emptyList();
         List<TreeNode<T>> list = new ArrayList<>();
         Queue<TreeNode<T>> queue = new ArrayDeque<>();
         queue.add(root);
-        while (queue.size() > 0){
+        while (!queue.isEmpty()){
             TreeNode<T> current = queue.poll();
             list.add(current);
             if(current.leftChild != null)

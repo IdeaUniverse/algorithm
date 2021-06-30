@@ -1,5 +1,7 @@
 package common;
 
+import algorithm.dataStructure.tree.BinaryTree;
+
 import java.util.*;
 
 public class Utils {
@@ -47,6 +49,13 @@ public class Utils {
         return start + new Random().nextInt(end - start);
     }
 
+    public static BinaryTree<Integer> generateCompleteBinaryTree(Integer[] arr){
+        BinaryTree<Integer> bt = new BinaryTree<>();
+        for (int v : arr)
+            bt.insert(v);
+        return bt;
+    }
+
     public static void batchTest(Test test, int total){
         int success = 0;
         for (int i = 0; i < total; i++) {
@@ -75,12 +84,5 @@ public class Utils {
             result.append(" ");
         }
         System.out.println(result);
-    }
-
-    public static void main(String[] args) {
-        char c = '8';
-        System.out.println((int) c);
-        System.out.println(Character.getNumericValue('A'));
-        System.out.println(Character.getNumericValue('^'));
     }
 }

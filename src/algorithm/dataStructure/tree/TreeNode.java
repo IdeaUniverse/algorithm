@@ -15,12 +15,13 @@ public class TreeNode<T extends Comparable<T>> {
         this.rightChild = rightChild;
     }
 
+    public boolean isLeafNode(){
+        return (leftChild == null || leftChild.data == null)
+                && (rightChild == null || rightChild.data == null);
+    }
+
     @Override
     public String toString() {
-        return "{" +
-                "data=" + data +
-//                ", leftChild=" + leftChild +
-//                ", rightChild=" + rightChild +
-                '}';
+        return "{" + data + "}";
     }
 }
