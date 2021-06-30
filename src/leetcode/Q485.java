@@ -6,6 +6,7 @@ import common.Utils;
 import java.util.Arrays;
 
 /**
+ * 最大连续 1 的个数
  * https://leetcode-cn.com/problems/max-consecutive-ones/
  */
 public class Q485 implements Test {

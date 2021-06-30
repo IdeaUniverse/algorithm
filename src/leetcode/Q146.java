@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Random;
 
 /**
+ * LRU 缓存机制
  * https://leetcode-cn.com/problems/lru-cache/
  */
 public class Q146 implements Test {

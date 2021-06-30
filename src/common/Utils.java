@@ -2,7 +2,9 @@ package common;
 
 import algorithm.dataStructure.tree.BinaryTree;
 
+import java.lang.reflect.Array;
 import java.util.*;
+import java.util.function.Function;
 
 public class Utils {
 
@@ -19,6 +21,8 @@ public class Utils {
     }
 
     public static int[] generateNoRepeatIntArray(int size, int bound){
+        if(size > bound)
+            throw new IllegalArgumentException("Size must be greater than bound");
         Set<Integer> set = new HashSet<>(size);
         while (set.size() < size){
             set.add(new Random().nextInt(bound));
@@ -27,11 +31,16 @@ public class Utils {
     }
 
     public static int[] generateIntRangeArray(int start, int end){
-        int[] arr = new int[end - start];
-        for (int i = start; i < end; i++) {
-            arr[i] = i;
+        int length = end - start;
+        int[] arr = new int[length];
+        for (int i = 0; i < length; i++) {
+            arr[i] = start + i;
         }
         return arr;
+    }
+
+    public static int[] array(int ...items){
+        return items;
     }
 
     public static String generateRandomString(int length) {
@@ -79,8 +88,18 @@ public class Utils {
 
     public static void print(Object ...args){
         StringBuilder result = new StringBuilder();
+        Function<Object, String> toString = o -> {
+            if(o instanceof int[])
+                return Arrays.toString((int[]) o);
+            if(o instanceof Integer[])
+                return Arrays.toString((Integer[]) o);
+            if(o instanceof String[])
+                return Arrays.toString((String[]) o);
+            return o.toString();
+        };
+
         for (Object arg : args) {
-            result.append(arg);
+            result.append(toString.apply(arg));
             result.append(" ");
         }
         System.out.println(result);

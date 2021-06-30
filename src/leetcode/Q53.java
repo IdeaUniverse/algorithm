@@ -6,6 +6,7 @@ import common.Utils;
 import java.util.Arrays;
 
 /**
+ * 最大子序和
  * https://leetcode-cn.com/problems/maximum-subarray/
  */
 public class Q53 implements Test {

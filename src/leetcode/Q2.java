@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
+ * 两数相加
  * https://leetcode-cn.com/problems/add-two-numbers/
  */
 public class Q2 implements Test {

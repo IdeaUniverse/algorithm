@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
+ * 搜索插入位置
  * https://leetcode-cn.com/problems/search-insert-position/
  */
 public class Q35 implements Test {

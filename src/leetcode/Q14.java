@@ -6,6 +6,7 @@ import common.Utils;
 import java.util.Random;
 
 /**
+ * 最长公共前缀
  * https://leetcode-cn.com/problems/longest-common-prefix/
  */
 public class Q14 implements Test {

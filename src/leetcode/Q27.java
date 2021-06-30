@@ -7,6 +7,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
+ * 删除有序数组中的重复项
  * https://leetcode-cn.com/problems/remove-element/
  */
 public class Q27 implements Test {

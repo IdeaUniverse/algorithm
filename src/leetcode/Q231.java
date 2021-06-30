@@ -5,6 +5,7 @@ import common.Utils;
 import java.util.Random;
 
 /**
+ *  2 的幂
  * https://leetcode-cn.com/problems/power-of-two/
  */
 public class Q231 implements Test {

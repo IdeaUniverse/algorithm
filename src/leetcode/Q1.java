@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Random;
 
 /**
+ * 两数之和
  * https://leetcode-cn.com/problems/two-sum
  */
 public class Q1 implements Test {
