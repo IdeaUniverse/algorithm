@@ -41,7 +41,7 @@ public class Q442 implements Test {
         int[] realResult = map.keySet().stream().filter(i -> map.get(i) > 1).mapToInt(i -> i).toArray();
         Utils.print("结果", list1);
         Utils.print("真实结果", realResult);
-        return Utils.isSameIntArray(list1.stream().mapToInt(i -> i).toArray(), realResult);
+        return Utils.isSameArray(list1.stream().mapToInt(i -> i).toArray(), realResult);
     }
 
     public static void main(String[] args) {

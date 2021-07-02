@@ -49,7 +49,7 @@ public class Q448 implements Test {
                 list1.add(i);
         }
         Utils.print("lost", list1, list);
-        return Utils.isSameIntArray(
+        return Utils.isSameArray(
                 list.stream().mapToInt(i -> i).toArray(),
                 list1.stream().mapToInt(i -> i).toArray());
     }

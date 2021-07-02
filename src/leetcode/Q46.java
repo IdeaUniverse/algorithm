@@ -77,7 +77,7 @@ public class Q46 implements Test {
 
     @Override
     public boolean test() {
-        int size = Utils.generateRandomInteger(0, 6) ; // 结果是阶乘量级的，所以size不要超过8
+        int size = Utils.generateRandomInteger(1, 6) ; // 结果是阶乘量级的，所以size不要超过8
         int[] nums = Utils.generateIntRangeArray(0, size);
         List<List<Integer>> list = permute(nums);
         List<List<Integer>> list1 = permute1(nums);

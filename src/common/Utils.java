@@ -2,7 +2,6 @@ package common;
 
 import algorithm.dataStructure.tree.BinaryTree;
 
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.function.Function;
 
@@ -67,16 +66,16 @@ public class Utils {
 
     public static void batchTest(Test test, int total){
         int success = 0;
-        for (int i = 0; i < total; i++) {
-            System.out.println("\n(" + (i + 1) + ")");
+        for (int i = 1; i <= total; i++) {
+            System.out.println("\n(" + i + ")");
             boolean result = test.test();
             print("【验证】", result);
             success += result ? 1 : 0;
         }
-        System.out.println("\n-------------------\n总计: " + total + ", 正确: " + success);
+        Utils.print("\n--------------------\n总计:", total, ", 正确:", success);
     }
 
-    public static boolean isSameIntArray(int[] arr, int[] arr1){
+    public static boolean isSameArray(int[] arr, int[] arr1){
         if(arr == null || arr1 == null || arr.length != arr1.length)
             return false;
         for (int i = 0; i < arr.length; i++) {

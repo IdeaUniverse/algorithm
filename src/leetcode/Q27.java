@@ -54,6 +54,6 @@ public class Q27 implements Test {
         Utils.print("删除重复元素后的数组", Arrays.toString(array), "新长度", newLength);
         int[] array2 = Arrays.stream(Arrays.copyOf(array, newLength)).sorted().toArray();
         Utils.print("截取并排序后的数组", Arrays.toString(array2));
-        return Utils.isSameIntArray(array1, array2);
+        return Utils.isSameArray(array1, array2);
     }
 }

@@ -53,7 +53,7 @@ public class QuickSort implements Test {
         Arrays.sort(newArray);
         Utils.print("排序后的数组", Arrays.toString(array));
         Utils.print("java 内置排序后的数组", Arrays.toString(newArray));
-        return Utils.isSameIntArray(array, newArray);
+        return Utils.isSameArray(array, newArray);
     }
 
     public static void main(String[] args) {
