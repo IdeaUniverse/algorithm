@@ -8,33 +8,40 @@ import java.util.Random;
 
 public class QuickSort implements Test {
 
-    private void sort(int[] array){
+    public void sort(int[] array){
+        sort(array, false);
+    }
+
+    public int[] sort(int[] array, boolean newArray){
+        if(newArray){
+            int[] arr = Arrays.copyOf(array, array.length);
+            partition(arr, 0, arr.length - 1);
+            return arr;
+        }
         partition(array, 0, array.length - 1);
+        return array;
     }
 
     private void partition(int[] arr, int left, int right){
         if(left >= right) return;
         int p = new Random().nextInt(right - left) + left;   // 空闲位置， l ~ r 之间的随机数
         swap(arr, left, p);
-        int index = left, l = left, r = right, pivot = arr[index];
+        int pivot = left, l = left, r = right;
         while (l < r){
-            while (r > l && arr[r] >= pivot) r--;
-            if(r > l){
-                swap(arr, r, index);
-                index = r;
-                l++;
+            while (l < r && arr[r] >= arr[pivot]) r--;
+            if(l < r){
+                swap(arr, r, pivot);
+                pivot = r;
             }
 
-            while (l < r && arr[l] <= pivot) l++;
+            while (l < r && arr[l] <= arr[pivot]) l++;
             if(l < r){
-                swap(arr, l, index);
-                index = l;
-                r--;
+                swap(arr, l, pivot);
+                pivot = l;
             }
         }
-        arr[index] = pivot;
-        partition(arr, left, index - 1);
-        partition(arr, index + 1, right);
+        partition(arr, left, pivot - 1);
+        partition(arr, pivot + 1, right);
     }
 
     private void swap(int[] arr, int i, int j){
