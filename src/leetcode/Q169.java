@@ -16,7 +16,6 @@ public class Q169 implements Test {
      * @param nums
      * @return
      */
-    // [17, 13, 10, 11, 9, 11, 15, 11, 12, 1]
     private int majorityElement(int[] nums) {
         int cnt = 0;
         int current = nums[0];
