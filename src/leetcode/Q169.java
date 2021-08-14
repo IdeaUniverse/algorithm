@@ -3,8 +3,6 @@ package leetcode;
 import common.Test;
 import common.Utils;
 
-import java.util.Random;
-
 /**
  * 多数元素
  * https://leetcode-cn.com/problems/majority-element/
