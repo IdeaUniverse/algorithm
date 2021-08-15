@@ -4,6 +4,7 @@ import common.Test;
 import common.Utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -12,14 +13,20 @@ import java.util.List;
  */
 public class Q77 implements Test {
 
-    private List<List<Integer>> combine1(int n, int k) {
+    /**
+     * 回溯法
+     * https://www.bilibili.com/video/BV1xa411A76q?p=14a
+     * @param n
+     * @param k
+     * @return
+     */
+    private List<List<Integer>> combine2(int n, int k) {
         List<List<Integer>> result = new ArrayList<>();
         backTracking(n, k, 1, result, new ArrayList<>());
         return result;
     }
 
     /**
-     * https://www.bilibili.com/video/BV1xa411A76q?p=14a
      * @param start 每次递归从哪里开始
      * @param result 最终结果 result = [list,list,list...]
      * @param list 每一个组合
@@ -53,10 +60,41 @@ public class Q77 implements Test {
         }
     }
 
+    /**
+     * 分治法
+     * @param n
+     * @param k
+     * @return
+     */
+    private List<List<Integer>> combine3(int n, int k) {
+        return c(n, k, 1);
+    }
+
+    private List<List<Integer>> c(int n, int k, int start){
+        List<List<Integer>> result = new ArrayList<>();
+        if(k == 1) {
+            for (int i = start; i <= n; i++) {
+                result.add(Collections.singletonList(i));
+            }
+            return result;
+        }
+
+        for (int i = start; i <= n; i++) {
+            List<List<Integer>> res = c(n, k - 1, i + 1);
+            for (List<Integer> re : res) {
+                List<Integer> r = new ArrayList<>();
+                r.add(i);
+                r.addAll(re);
+                result.add(r);
+            }
+        }
+        return result;
+    }
+
     /*以下为官方解法*/
     List<Integer> temp = new ArrayList<Integer>();
     List<List<Integer>> ans = new ArrayList<List<Integer>>();
-    private List<List<Integer>> combine2(int n, int k) {
+    private List<List<Integer>> combine1(int n, int k) {
         dfs(1, n, k);
         return ans;
     }
@@ -79,15 +117,7 @@ public class Q77 implements Test {
     }
     /*以上为官方解法*/
 
-    @Override
-    public boolean test() {
-        int n = Utils.generateRandomInteger(1, 10);
-        int k = Utils.generateRandomInteger(1, n + 1); //n > 1 ? Utils.generateRandomInteger(1, n) : 1;
-        List<List<Integer>> result1 = combine1(n,k);
-        List<List<Integer>> result2 = new Q77().combine2(n,k);  // 官方方法是有状态的
-        Utils.print("n =", n, "k =",k);
-        Utils.print("官方答案", result2);
-        Utils.print("我的答案", result1);
+    private boolean validate(List<List<Integer>> result1, List<List<Integer>> result2){
         if(result1.size() != result2.size()){
             return false;
         }
@@ -102,6 +132,22 @@ public class Q77 implements Test {
             }
         }
         return true;
+    }
+
+    @Override
+    public boolean test() {
+        int n = Utils.generateRandomInteger(1, 10);
+        int k = Utils.generateRandomInteger(1, n + 1);
+        List<List<Integer>> result1 = new Q77().combine1(n,k);  // 官方方法是有状态的
+        List<List<Integer>> result2 = combine2(n,k);
+        List<List<Integer>> result3 = combine3(n,k);
+
+        Utils.print("n =", n, "k =",k);
+        Utils.print("官方答案 ", result1);
+        Utils.print("我的答案1", result2);
+        Utils.print("我的答案2", result3);
+
+        return validate(result1, result2) && validate(result1, result3);
     }
 
     public static void main(String[] args) {
