@@ -26,6 +26,7 @@ public class Q206 implements Test {
             head = second;
             second = third;
         }
+        second.next = null;
         return head;
     }
 
@@ -48,7 +49,7 @@ public class Q206 implements Test {
         return newHead;
     }
 
-    private String traverse(ListNode head){
+    public String traverse(ListNode head){
         StringBuilder s = new StringBuilder();
         while (head != null){
             s.append(head.val);
