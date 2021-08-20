@@ -28,10 +28,8 @@ public class Q234 implements Test {
                 }
             }
         }
-        p2 = p1.next;
-        p1.next = null;
-        p2 = reverseLinkedLis(p2);
-        return isSameLinkedList(head, p2);
+        p1 = reverseLinkedLis(p1);
+        return contains(p1, head);
     }
 
     private ListNode reverseLinkedLis(ListNode head) {
@@ -49,9 +47,9 @@ public class Q234 implements Test {
         return head;
     }
 
-    private boolean isSameLinkedList(ListNode head1, ListNode head2) {
-        while (head1 != null) {
-            if (head2 == null) {
+    private boolean contains(ListNode head1, ListNode head2) {
+        while (head2 != null) {
+            if (head1 == null) {
                 return false;
             }
             if (head1.val != head2.val) {
@@ -60,19 +58,28 @@ public class Q234 implements Test {
             head1 = head1.next;
             head2 = head2.next;
         }
-        return head2 == null;
+        return true;
     }
 
-    private ListNode generateLinkedList(int halfSize, boolean palindrome) {
-        if (halfSize < 1) {
+    private ListNode generateLinkedList(int size, boolean palindrome) {
+        int halfSize = size / 2;
+        boolean even = size % 2 == 0;
+        if (size < 1) {
             return null;
         }
         ListNode head = new ListNode(1);
+        if(size == 1){
+            return head;
+        }
         ListNode node = head;
         for (int i = 1; i < halfSize; i++) {
             ListNode newNode = new ListNode(i + 1);
             node.next = newNode;
             node = newNode;
+        }
+        if(!even){
+            node.next = new ListNode(halfSize + 1);
+            node = node.next;
         }
         int diff = palindrome ? 0 : Utils.generateRandomInteger(1, halfSize + 1);
         for (int i = halfSize; i > diff; i--) {
@@ -133,13 +140,12 @@ public class Q234 implements Test {
 
     @Override
     public boolean test() {
-        int halfSize = Utils.generateRandomInteger(1, 100);
-        boolean palindrome = halfSize == 1 || new Random().nextBoolean();
+        int size = Utils.generateRandomInteger(1, 20);
+        boolean palindrome = size < 3 || new Random().nextBoolean();
+        ListNode head = generateLinkedList(size, palindrome);
+        ListNode head1 = generateLinkedList(size, palindrome);
 
-        ListNode head = generateLinkedList(halfSize, palindrome);
-        ListNode head1 = generateLinkedList(halfSize, palindrome);
-
-        Utils.print("链表", new Q206().traverse(head), "回文", palindrome, "size", halfSize);
+        Utils.print("链表", new Q206().traverse(head), "回文", palindrome, "size", size);
         boolean result = isPalindrome(head);
         boolean result1 = isPalindrome1(head1);
         Utils.print("计算结果", result);
